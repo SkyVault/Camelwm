@@ -1,0 +1,8 @@
+(library (name xbindings)
+	 (foreign_stubs (language c) (names bindings))
+	 (modules)
+	 (c_library_flags :standard -lX11))
+
+(executable
+	(name camelwm)
+	(libraries xbindings))

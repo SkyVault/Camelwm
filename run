@@ -1,0 +1,8 @@
+#!/bin/bash
+
+# Compile program
+$(dune build camelwm.exe) || exit 1;
+
+killall Xephyr
+Xephyr -br -ac -noreset -screen 600x480 :1 & disown
+sleep 0.5 && DISPLAY=:1 ./_build/default/camelwm.exe
